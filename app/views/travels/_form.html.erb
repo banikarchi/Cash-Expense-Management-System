@@ -1,0 +1,37 @@
+<%= form_with(model: travel) do |form| %>
+  <% if travel.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(travel.errors.count, "error") %> prohibited this travel from being saved:</h2>
+
+      <ul>
+        <% travel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div>
+    <%= form.label :expenses, style: "display: block" %>
+    <%= form.text_field :expenses %>
+  </div>
+
+  <div>
+    <%= form.label :approve, style: "display: block" %>
+    <%= form.check_box :approve %>
+  </div>
+  <div>
+    
+  <%= form.number_field :user_id ,value: current_user.id, type: :hidden%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+ 
+<% end %>

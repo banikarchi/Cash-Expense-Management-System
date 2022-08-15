@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+<h1>travel/show</h1>
+<%= render @travel %>
+
+<div>
+<%= link_to "New_travel", new_travel_path(@travel) %>
+  <%= link_to "Edit this travel", edit_travel_path(@travel) %> |
+  <%= link_to "Back to travels", travels_path %>
+
+  <%= button_to "Destroy this travel", @travel ,method: :delete %>
+</div>

@@ -1,0 +1,9 @@
+<h1>All the users are </h1>
+<% @users.each do |t| %>
+    <%=t.email%>  <%=t.id%><br>
+   
+
+<%end%>
+
+<%= link_to "Login", sign_in_path %>
+<%= link_to "Register", register_path%>

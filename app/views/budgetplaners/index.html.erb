@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Budgetplaners</h1>
+
+<div id="budgetplaners">
+  <% if current_user.is_admin==true%>
+    <% @budgetplaners.each do |budgetplaner| %>
+      <%= render budgetplaner %>
+      <p>
+      <%= link_to "Show this budgetplaner", budgetplaner %>
+      </p>
+    <% end %>
+  <%else%>
+    <% @budgetplanerz.each do |budgetplaner| %>
+      <%= render budgetplaner %>
+      <p>
+      <%= link_to "Show this budgetplaner", budgetplaner %>
+      </p>
+    <% end %>
+  <%end%>
+
+</div>
+
+<%= link_to "New budgetplaner", new_budgetplaner_path %>
+<%= link_to "User HomePage", user_path %>

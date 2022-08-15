@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Wallets</h1>
+
+<div id="wallets">
+  <%if current_user.is_admin==true%>
+   <% @wallets.each do |wallet| %>
+      <%= render wallet %>
+      <p>
+      <%= link_to "Show this wallet", wallet %>
+      </p>
+    <%end%>
+    
+  <% else%>
+    <% @walletz.each do |wallet| %>
+      <%= render wallet %>
+      <p>
+      <%= link_to "Show this wallet", wallet %>
+      </p>
+    <% end %>
+
+  <%end%>
+
+</div>
+
+<%= link_to "New wallet", new_wallet_path %>
+<%= link_to "User HomePage", user_path %>

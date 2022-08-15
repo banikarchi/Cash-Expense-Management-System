@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<h1>You are logged in as <%=current_user.email%></h1>
+
+
+<div>
+  
+  <%= link_to "Travel", travels_path %>
+  
+  <%= link_to "Wallets", wallets_path %>
+  <%= link_to "Budget Planner", budgetplaners_path %>
+  <%=link_to "Sign out", sign_out_path %>
+
+  
+</div>

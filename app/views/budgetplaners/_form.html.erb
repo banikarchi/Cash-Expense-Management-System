@@ -1,0 +1,51 @@
+<%= form_with(model: budgetplaner) do |form| %>
+  <% if budgetplaner.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(budgetplaner.errors.count, "error") %> prohibited this budgetplaner from being saved:</h2>
+
+      <ul>
+        <% budgetplaner.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div>
+    <%= form.label :subcategory, style: "display: block" %>
+    <%= form.text_field :subcategory %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div>
+    <%= form.label :notes, style: "display: block" %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div>
+    <%= form.label :month, style: "display: block" %>
+    <%= form.text_field :month %>
+  </div>
+  <div>
+  <%if current_user.is_admin==true%>
+    <%= form.number_field :user_id%>     
+    
+  <%else%>
+    <%= form.number_field :user_id ,value: current_user.id, type: :hidden%>
+      
+  <% end %>  
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
