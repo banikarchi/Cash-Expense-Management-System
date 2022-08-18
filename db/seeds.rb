@@ -7,9 +7,21 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts("Seeding")
 User.create(
-    email: 'admin3@g.com',
+    email: 'admin@g.com',
     password_digest: BCrypt::Password.create('2313'),
     is_admin: true
 
 )
 puts("Admin Created")
+User.create(
+    email: 'user1@g.com',
+    password_digest: BCrypt::Password.create('2313'),
+    is_admin: false
+
+)
+User.create(
+    email: 'user2@g.com',
+    password_digest: BCrypt::Password.create('2313'),
+    is_admin: false
+
+)
