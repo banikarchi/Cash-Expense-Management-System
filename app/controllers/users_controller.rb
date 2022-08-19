@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user= User.new(user_params)
     if @user.save
       flash.now[:notice]="Sucessfully Registered"
-      redirect_to root_path
+      redirect_to user_path
     else
       flash.now[:notice]=@user.errors.full_messages.to_sentence
       render :new
