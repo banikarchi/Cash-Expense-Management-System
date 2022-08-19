@@ -1,6 +1,6 @@
 <h1>All the users are </h1>
 <% @users.each do |t| %>
-    <%=t.email%>  <%=t.id%><br>
+    <%=t.email%>  <%=t.id%><%= button_to "Delete this user", @t, method: :delete %><br>
    
 
 <%end%>
