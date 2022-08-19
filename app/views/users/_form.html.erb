@@ -1,0 +1,13 @@
+<%= form_with(model: user) do |form| %>
+    <div>
+    <%= form.label :Email, style: "display: block" %>
+    <%= form.email_field :email %>
+    </div>
+    <div>
+    <%= form.label :Password, style: "display: block" %>
+    <%= form.password_field :password %>
+    </div>    
+    <div>
+    <%= form.submit %>
+    </div>
+<%end%>
