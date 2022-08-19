@@ -8,7 +8,8 @@
   <%=link_to "Category",categories_path %><br>
   <%= link_to "Wallets", wallets_path %><br>
   <%= link_to "Budget Planner", budgetplaners_path %><br>
-  <%=link_to "Sign out", sign_out_path %>
-
-  
+  <%=link_to "Sign out", sign_out_path %><br>
+  <%if current_user.is_admin==true %>
+  <%= link_to "Add New User", register_path%>
+  <%end%>
 </div>
