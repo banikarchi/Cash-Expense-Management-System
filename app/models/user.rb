@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_many:travel
     has_many:budgetplaner
     has_many:wallet
+    has_many:category
     def password
         @password
     end

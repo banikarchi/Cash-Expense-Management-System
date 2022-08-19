@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_12_033415) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_004306) do
   create_table "admins", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -39,6 +39,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_033415) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_budgetplaners_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "cgory"
+    t.string "scgory"
+    t.float "amount"
+    t.boolean "approval"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "travels", force: :cascade do |t|
