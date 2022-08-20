@@ -10,6 +10,7 @@
   <%= link_to "Budget Planner", budgetplaners_path %><br>
   <%=link_to "Sign out", sign_out_path %><br>
   <%if current_user.is_admin==true %>
-  <%= link_to "Add New User", register_path%>
+  <%= link_to "Add New User", register_path%><br>
+  <%=link_to "All User List",user_index_path %>
   <%end%>
 </div>

@@ -5,6 +5,7 @@ class WalletsController < ApplicationController
   def index
     @user=current_user
     if @user.is_admin==true
+      
       @wallets=Wallet.all
     else
       @walletz = @user.wallet.all

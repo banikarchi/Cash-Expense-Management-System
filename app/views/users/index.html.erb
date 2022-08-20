@@ -1,10 +1,10 @@
 <h1>All the users are </h1>
 <% @users.each do |t| %>
-    <%=t.email%>  <%=t.id%><%= button_to "Delete this user", @t, method: :delete %><br>
-   
+    <%=t.email%> <br>
+   <a href="/delete/<%=t.id%>" method="delete" >Delete</a><br>
 
 <%end%>
 
 
 <%= link_to "Register", register_path%>
-<%= link_to "User HomePage", user_path %>
+<%= link_to "Admin HomePage", user_path %>
