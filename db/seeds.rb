@@ -5,23 +5,23 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-puts("Seeding")
-User.create(
-    email: 'admin@g.com',
-    password_digest: BCrypt::Password.create('2313'),
-    is_admin: true
+#puts("Seeding")
+#User.create(
+#    email: 'admin@g.com',
+#    password_digest: BCrypt::Password.create('2313'),
+#    is_admin: true
 
-)
-puts("Admin Created")
-User.create(
-    email: 'user1@g.com',
-    password_digest: BCrypt::Password.create('2313'),
-    is_admin: false
+#)
+#puts("Admin Created")
+#User.create(
+#    email: 'user1@g.com',
+#    password_digest: BCrypt::Password.create('2313'),
+ #   is_admin: false
 
-)
-User.create(
-    email: 'user2@g.com',
-    password_digest: BCrypt::Password.create('2313'),
-    is_admin: false
+#)
+#User.create(
+ #   email: 'user2@g.com',
+  #  password_digest: BCrypt::Password.create('2313'),
+   # is_admin: false
 
-)
+#)
