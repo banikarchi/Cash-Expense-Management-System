@@ -22,26 +22,20 @@
   </div>
 
   <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+   
+    <%= form.text_field :amount,type: :hidden %>
   </div>
 
+  
   <div>
-    <%if current_user.is_admin==true %>
-    <%= form.label :approval, style: "display: block" %>
-    <%= form.check_box :approval %>
-    <% end %>
-  </div>
-  <div>
-  <%if current_user.is_admin==true%>
-    <%= form.number_field :user_id%>     
-    
-  <%else%>
+  
     <%= form.number_field :user_id ,value: current_user.id, type: :hidden%>
       
-  <% end %>  
-  </div>
 
+  </div>
+  <div>
+  <%=form.number_field :b_index,value: 1,type: :hidden%>
+  </div>
 
   <div>
     <%= form.submit %>

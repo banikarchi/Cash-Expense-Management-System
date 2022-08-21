@@ -13,12 +13,26 @@
 
   <div>
     <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
+    
+    
+    <select id=category,name =budgetplaner[category]>
+          <% for c in Category.all%>
+          <option > <%=c.cgory%> </option>
+          
+          <%end%>
+  </select>
+    
+   
   </div>
 
   <div>
     <%= form.label :subcategory, style: "display: block" %>
-    <%= form.text_field :subcategory %>
+    <select id=category,name =budgetplaner[subcategory]>
+    <% for c in Category.all%>
+    <option > <%=c.scgory%> </option>
+    
+    <%end%>
+</select>
   </div>
 
   <div>

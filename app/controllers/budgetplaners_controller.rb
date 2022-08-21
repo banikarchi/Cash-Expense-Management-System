@@ -28,6 +28,15 @@ class BudgetplanersController < ApplicationController
   # POST /budgetplaners or /budgetplaners.json
   def create
     @budgetplaner = Budgetplaner.new(budgetplaner_params)
+    #categories_list=Category.all
+    #@categories=nil
+    #list=nil
+    #for c in categories_list
+
+      #list.append(c.cgory)
+      #puts(list)
+    #end
+    @cat=Category.all
     
     respond_to do |format|
       if  balance_sufficient(@budgetplaner) && @budgetplaner.save
