@@ -8,7 +8,7 @@ class WalletsController < ApplicationController
       
       @wallets=Wallet.all
     else
-      @walletz = @user.wallet.all
+      @wallets = @user.wallet.all
     end
   end
 

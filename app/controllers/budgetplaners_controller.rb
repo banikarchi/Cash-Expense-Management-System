@@ -7,7 +7,7 @@ class BudgetplanersController < ApplicationController
     if @user.is_admin==true
       @budgetplaners = Budgetplaner.all
     else
-      @budgetplanerz= @user.budgetplaner.all
+      @budgetplaners= @user.budgetplaner.all
     end
 
   end
@@ -28,25 +28,55 @@ class BudgetplanersController < ApplicationController
   # POST /budgetplaners or /budgetplaners.json
   def create
     @budgetplaner = Budgetplaner.new(budgetplaner_params)
-
+    
     respond_to do |format|
-      if @budgetplaner.save
+      if  balance_sufficient(@budgetplaner) && @budgetplaner.save
         format.html { redirect_to budgetplaner_url(@budgetplaner), notice: "Budgetplaner was successfully created." }
         
       else
-        format.html { render :new, status: :unprocessable_entity }
+        flash.notice="Insuffiient wallet balance for this month"
+       
+        format.html {  render :new, status: :unprocessable_entity  }
         
       end
     end
+  end
+  def balance_sufficient(bplaner)
+    @budgetplaner=bplaner
+    flag=false
+    @user=current_user
+    if @user.is_admin==true
+      return true
+    end
+    curr_wallet=@user.wallet.all
+    sum=0
+    for w in curr_wallet
+      if w.month==@budgetplaner.month
+        sum=sum+w.amount
+        
+      end
+    end
+    full_budget=@user.budgetplaner.all
+    for fb in full_budget
+      if fb.month==@budgetplaner.month
+        sum=sum-fb.amount
+      end
+    end
+    if sum>=@budgetplaner.amount
+      flag=true
+    end
+    return flag
   end
 
   # PATCH/PUT /budgetplaners/1 or /budgetplaners/1.json
   def update
     respond_to do |format|
-      if @budgetplaner.update(budgetplaner_params)
+      if  @budgetplaner.update(budgetplaner_params) && balance_sufficient(@budgetplaner)
         format.html { redirect_to budgetplaner_url(@budgetplaner), notice: "Budgetplaner was successfully updated." }
         
       else
+        flash.notice="Insuffiient wallet balance for this month"
+        
         format.html { render :edit, status: :unprocessable_entity }
         
       end

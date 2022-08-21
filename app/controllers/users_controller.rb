@@ -26,6 +26,14 @@ class UsersController < ApplicationController
   end
   def delete
     @user=User.find(params[:id])
+    @wallets=@user.wallet.all
+    for w in @wallets
+      w.destroy
+    end
+    @bs=@user.budgetplaner.all
+    for b in @bs 
+      b.destroy
+    end
     @user.destroy
     @users=User.all;
     redirect_to user_index_path
